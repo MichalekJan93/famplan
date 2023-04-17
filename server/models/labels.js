@@ -5,7 +5,7 @@ const labelsSchema = new mongoose.Schema({
     text: String,
     language: String,
     addUser: String,
-    date: {
+    wDate: {
         type: Date,
         default: Date.now
     }
