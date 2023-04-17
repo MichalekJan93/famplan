@@ -16,16 +16,30 @@ const usersSchema = new mongoose.Schema({
             id: Number,
             name: String,
             active: Boolean,
-            date: {
+            wDate: {
                 type: Date,
                 default: Date.now
             }
         })
     },
-    Calendar: { //TODO
-
+    events: {
+        type: Map,
+        of: new Schema({
+            title: String,
+            description: String,
+            date: Date,
+            startTime: String,
+            endTime: String,
+            location: String,
+            private: Boolean,
+            participants: [String],
+            wDate: {
+                type: Date,
+                default: Date.now
+            }
+        })
     },
-    date: {
+    wDate: {
         type: Date,
         default: Date.now
     }
