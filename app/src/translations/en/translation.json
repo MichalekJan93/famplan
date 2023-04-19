@@ -1,0 +1,9 @@
+{
+    "components" : {
+        "dashboard" : "Dashboard",
+        "calendar" : "Calendar",
+        "shoppingList" : "Shopping List",
+        "familyPlans" : "Family plans",
+        "setting" : "Setting"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "components" : {
+        "dashboard" : "Dashboard",
+        "calendar" : "Kalendár",
+        "shoppingList" : "Nákupný zoznam",
+        "familyPlans" : "Rodinné plány",
+        "setting" : "Nastavenia"
+    }
+}
