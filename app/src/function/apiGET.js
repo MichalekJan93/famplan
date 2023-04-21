@@ -5,7 +5,7 @@
  * @returns 
  */
 export const apiGet = (url) => {
-    return fetch(url)
+    fetch(url)
         .then(async response => {
             if (response.ok){
                 return await response.json();

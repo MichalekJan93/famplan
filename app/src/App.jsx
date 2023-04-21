@@ -1,6 +1,7 @@
 import './App.css';
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
+import RegistrationForm from './components/forms/RegistrationForm';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <RegistrationForm/>
       <header className="App-header">
         <button onClick={() => changeLanguage("en")}>EN</button>
         <button onClick={() => changeLanguage("cs")}>CZ</button>
