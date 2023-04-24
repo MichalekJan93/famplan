@@ -1,3 +1,6 @@
+/**
+ * Libraries for multilanguage
+ */
 import i18n from 'i18next'
 import Backend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
@@ -22,7 +25,7 @@ const resources = {
 i18n.use(Backend).use(LanguageDetector).use(initReactI18next).init({
     resources,
     fallbackLng: 'cs',
-    debug: true,
+    debug: false,
     detection: {
         order: ['queryString', 'cookie'],
         cache: ['cookie']

@@ -38,11 +38,11 @@ app.post("/api/registrationUser", (req, res) => {
             res.send(result);
         })
         .catch(e => {
-            if (e.code === 11000) { // pokud email v databázi již existuje
-                res.status(400).send("Účet se zadaným emailem již existuje");
+            if (e.code === 11000) {
+                res.status(409).send("An account with the specified email already exists");
                 return;
             }
-            res.status(500).send("Nastala chyba při registraci");
+            res.status(500).send("An error occurred during registration");
         });
 })
 

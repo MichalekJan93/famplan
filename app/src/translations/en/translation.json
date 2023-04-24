@@ -5,5 +5,23 @@
         "shoppingList" : "Shopping List",
         "familyPlans" : "Family plans",
         "setting" : "Setting"
+    },
+    "signup" : {
+        "signup" : "Sign up",
+        "email" : "Email",
+        "password" : "Password",
+        "repeatPassword" : "Repeat the password",
+        "registration" : "Sign up",
+        "passwordLength" : "*Password must contain at least 6 characters"
+    },
+    "serverMessages" : {
+        "errorServer" : "Unexpected mistake. Try this action later",
+        "conflictEmail" : "An account with this email already exists"
+    },
+    "forMessages" : {
+        "wrongEmail" : "Invalid email address",
+        "passwordNotMatch" : "Passwords don't match",
+        "passwordCharacter" : "Password must be at least 6 characters long",
+        "fillFields" : "Fill in all fields"
     }
 }

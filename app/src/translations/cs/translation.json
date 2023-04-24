@@ -5,5 +5,23 @@
         "shoppingList" : "Nákupní seznam",
         "familyPlans" : "Rodinné plány",
         "setting" : "Nastavení"
+    },
+    "signup" : {
+        "signup" : "Registrace",
+        "email" : "Email",
+        "password" : "Heslo",
+        "repeatPassword" : "Heslo znovu",
+        "registration" : "Registrovat",
+        "passwordLength" : "*Heslo musí obsahovat alespoň 6 znaků"
+    },
+    "serverMessages" : {
+        "errorServer" : "Neočekávaná chyba. Zkuste tuto akci později",
+        "conflictEmail" : "Účet se zadaným emailem již existuje"
+    },
+    "forMessages" : {
+        "wrongEmail" : "Neplatná emailová adresa",
+        "passwordNotMatch" : "Hesla se neshodují",
+        "passwordCharacter" : "Heslo musí mít alespoň 6 znaků",
+        "fillFields" : "Vyplňte všechna pole"
     }
 }

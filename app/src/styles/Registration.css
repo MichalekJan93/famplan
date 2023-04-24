@@ -1,0 +1,18 @@
+.form h2{
+    text-align: center;
+}
+
+.form{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.form button{
+    display: block;
+    margin: 1rem auto 0 auto;
+}

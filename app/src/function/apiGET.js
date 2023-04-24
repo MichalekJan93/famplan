@@ -1,8 +1,7 @@
-// TODO
 /**
- * 
- * @param {*} url 
- * @returns 
+ * Function for get data to server with GET method
+ * @param {string} url endpoint url
+ * @returns
  */
 export const apiGet = (url) => {
     fetch(url)

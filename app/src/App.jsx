@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
-import RegistrationForm from './components/forms/RegistrationForm';
+import Router from './Router';
 
 function App() {
 
@@ -13,16 +13,14 @@ function App() {
 
   return (
     <div className="App">
-      <RegistrationForm/>
-      <header className="App-header">
-        <button onClick={() => changeLanguage("en")}>EN</button>
+       {/*  <button onClick={() => changeLanguage("en")}>EN</button>
         <button onClick={() => changeLanguage("cs")}>CZ</button>
         <button onClick={() => changeLanguage("sk")}>SK</button>
         <Trans i18nKey="components.calendar">
         Defaultni text
         </Trans>
-        <p>{t("components.calendar")}</p>
-      </header>
+        <p>{t("components.calendar")}</p> */}
+        <Router />
     </div>
   );
 }
