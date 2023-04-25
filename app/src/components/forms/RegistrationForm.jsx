@@ -1,3 +1,9 @@
+/**
+ * COMPONENT RegistrationForm
+ * Component for creating a registration form
+ * MIJN 230424 - Created component
+ */
+
 import { useState, useRef, useEffect } from "react";
 import { apiPost } from "../../function/apiPost";
 import { Trans, useTranslation } from "react-i18next";

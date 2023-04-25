@@ -18,3 +18,117 @@ header .logo p{
 }
 
 /* ===== VERTICAL MENU ===== */
+.vertical-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+    min-height: 800px;
+    height: 100vh;
+    background-color: #070707;
+    padding: 2rem 1rem;
+}
+
+.vertical-menu .logo img{
+    width: 30px;
+}
+
+.vertical-menu .menu-list{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.vertical-menu .menu-list .menu-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.vertical-menu .menu-item{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 300ms ease-in;
+    background-size: 35px;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+.menu-item:hover + p{
+    color: #91BF76;
+}
+
+.menu-box  p{
+    text-align: center;
+    color: rgb(199, 199, 199);
+    transition: all 200ms ease-in;
+    font-size: 0.9rem;
+    cursor: default;
+}
+
+.menu-box  p.active{
+    color: #91BF76;
+}
+
+.menu-box .menu-item.menu-item-dashboard{
+    background-image: url('../assets/images/icon-dashboard.png');
+}
+
+.menu-box .menu-item.menu-item-dashboard.active{
+    background-image: url('../assets/images/icon-dashboard-hover.png');
+}
+
+.menu-box .menu-item.menu-item-dashboard:hover{
+    background-image: url('../assets/images/icon-dashboard-hover.png');
+}
+
+.menu-item.menu-item-calendar{
+    background-image: url('../assets/images/icon-calendar.png');
+}
+
+.menu-item.menu-item-calendar:hover{
+    background-image: url('../assets/images/icon-calendar-hover.png');
+}
+
+.menu-item.menu-item-family-plans{
+    background-image: url('../assets/images/icon-planner.png');
+}
+
+.menu-item.menu-item-family-plans:hover{
+    background-image: url('../assets/images/icon-planner-hover.png');
+}
+
+.menu-item.menu-item-shopping-list{
+    background-image: url('../assets/images/icon-baught.png');
+}
+
+.menu-item.menu-item-shopping-list:hover{
+    background-image: url('../assets/images/icon-baught-hover.png');
+}
+
+.user-set .menu-box{
+    display: flex;
+}
+
+.user-set .menu-box .menu-item.menu-item-setting{
+    background-image: url('../assets/images/icon-setting.png');
+}
+
+.user-set .menu-box .menu-item.menu-item-setting:hover{
+    background-image: url('../assets/images/icon-setting-hover.png');
+}
+
+.user-set .menu-box .menu-item{
+    background-size: 30px !important;
+}
+
+.user-set .menu-box .menu-item.menu-item-logout{
+    background-image: url('../assets/images/icon-logout.png');
+}
+
+.user-set .menu-box .menu-item.menu-item-logout:hover{
+    background-image: url('../assets/images/icon-logout-hover.png');
+}

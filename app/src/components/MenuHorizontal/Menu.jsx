@@ -1,3 +1,9 @@
+/**
+ * COMPONENT Menu
+ * Component for creating horizontal menu
+ * MIJN 230424 - Created component
+ */
+
 import logo from '../../assets/images/famplan-logo.png'
 import '../../styles/Menu.css'
 

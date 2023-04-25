@@ -4,7 +4,6 @@ import { Trans, useTranslation } from "react-i18next";
 import Router from './Router';
 
 function App() {
-
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (language) => {
@@ -22,7 +21,7 @@ function App() {
         <p>{t("components.calendar")}</p> */}
         <Router />
     </div>
-  );
+  )
 }
 
 export default App;
