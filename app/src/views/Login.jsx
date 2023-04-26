@@ -1,15 +1,15 @@
 import Menu from "../components/MenuHorizontal/Menu"
-import RegistrationForm from "../components/Forms/RegistrationForm"
+import LoginForm from "../components/Forms/LoginForm"
 
-const Registration = () => {
+const Login = () => {
     return(
         <div>
             <Menu />
             <div className="center-box">
-                <RegistrationForm />
+                <LoginForm />
             </div>
         </div>
     )
 }
 
-export default Registration;
+export default Login;

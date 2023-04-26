@@ -5,7 +5,7 @@
  */
 
 import logo from '../../assets/images/famplan-logo.png'
-import '../../styles/Menu.css'
+import './Menu.css'
 
 const Menu = () => {
     return(

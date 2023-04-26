@@ -1,24 +1,3 @@
-/* ===== HORIZONTAL MENU ===== */
-header{
-    padding: 1rem;
-}
-
-header .logo{
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-}
-
-header .logo img{
-    width: 30px;
-}
-
-header .logo p{
-    font-weight: 600;
-}
-
-/* ===== VERTICAL MENU ===== */
-
 .vertical-menu-box{
     position: relative;
 }
@@ -28,6 +7,7 @@ header .logo p{
     top: 0;
     left: 0;
     width: 0px;
+    padding: 2rem 0rem;
     flex-direction: column;
     overflow-x: hidden;
     align-items: center;
@@ -39,7 +19,7 @@ header .logo p{
 }
 
 .vertical-menu.active{
-    width: 130px;
+    width: 150px;
     padding: 2rem 1rem;
 }
 
@@ -50,7 +30,7 @@ header .logo p{
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background-image: url('../assets/images/icon-left.png');
+    background-image: url('../../assets/images/icon-left.png');
     background-size: 32px;
     background-repeat:no-repeat;
     background-position: center;
@@ -59,16 +39,12 @@ header .logo p{
 }
 
 .vertical-menu .control-menu.active{
-    left: 100px;
+    left: 115px;
     transform: rotate(0deg);
 }
 
 .vertical-menu .control-menu:hover{
-    background-image: url('../assets/images/icon-left-hover.png');
-}
-
-.vertical-menu .logo{
-    margin-top: 1rem;
+    background-image: url('../../assets/images/icon-left-hover.png');
 }
 
 .vertical-menu .logo img{
@@ -92,39 +68,39 @@ header .logo p{
 }
 
 .menu-box .menu-item.menu-item-dashboard{
-    background-image: url('../assets/images/icon-dashboard.png');
+    background-image: url('../../assets/images/icon-dashboard.png');
 }
 
 .menu-box .menu-item.menu-item-dashboard.active{
-    background-image: url('../assets/images/icon-dashboard-hover.png');
+    background-image: url('../../assets/images/icon-dashboard-hover.png');
 }
 
 .menu-box .menu-item.menu-item-dashboard:hover{
-    background-image: url('../assets/images/icon-dashboard-hover.png');
+    background-image: url('../../assets/images/icon-dashboard-hover.png');
 }
 
 .menu-item.menu-item-calendar{
-    background-image: url('../assets/images/icon-calendar.png');
+    background-image: url('../../assets/images/icon-calendar.png');
 }
 
 .menu-item.menu-item-calendar:hover{
-    background-image: url('../assets/images/icon-calendar-hover.png');
+    background-image: url('../../assets/images/icon-calendar-hover.png');
 }
 
 .menu-item.menu-item-family-plans{
-    background-image: url('../assets/images/icon-planner.png');
+    background-image: url('../../assets/images/icon-planner.png');
 }
 
 .menu-item.menu-item-family-plans:hover{
-    background-image: url('../assets/images/icon-planner-hover.png');
+    background-image: url('../../assets/images/icon-planner-hover.png');
 }
 
 .menu-item.menu-item-shopping-list{
-    background-image: url('../assets/images/icon-baught.png');
+    background-image: url('../../assets/images/icon-baught.png');
 }
 
 .menu-item.menu-item-shopping-list:hover{
-    background-image: url('../assets/images/icon-baught-hover.png');
+    background-image: url('../../assets/images/icon-baught-hover.png');
 }
 
 .user-set .menu-box{
@@ -136,17 +112,17 @@ header .logo p{
 }
 
 .user-set .menu-box .menu-item.menu-item-setting{
-    background-image: url('../assets/images/icon-setting.png');
+    background-image: url('../../assets/images/icon-setting.png');
 }
 
 .user-set .menu-box .menu-item.menu-item-setting:hover{
-    background-image: url('../assets/images/icon-setting-hover.png');
+    background-image: url('../../assets/images/icon-setting-hover.png');
 }
 
 .user-set .menu-box .menu-item.menu-item-logout{
-    background-image: url('../assets/images/icon-logout.png');
+    background-image: url('../../assets/images/icon-logout.png');
 }
 
 .user-set .menu-box .menu-item.menu-item-logout:hover{
-    background-image: url('../assets/images/icon-logout-hover.png');
+    background-image: url('../../assets/images/icon-logout-hover.png');
 }

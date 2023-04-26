@@ -14,6 +14,12 @@
         "registration" : "Sign up",
         "passwordLength" : "*Password must contain at least 6 characters"
     },
+    "login" : {
+        "login" : "Login",
+        "email" : "Email",
+        "password" : "Password",
+        "loginButton" : "Login"
+    },
     "serverMessages" : {
         "errorServer" : "Unexpected mistake. Try this action later",
         "conflictEmail" : "An account with this email already exists"
@@ -22,6 +28,7 @@
         "wrongEmail" : "Invalid email address",
         "passwordNotMatch" : "Passwords don't match",
         "passwordCharacter" : "Password must be at least 6 characters long",
-        "fillFields" : "Fill in all fields"
+        "fillFields" : "Fill in all fields",
+        "invalidLogin" : "Invalid login details"
     }
 }

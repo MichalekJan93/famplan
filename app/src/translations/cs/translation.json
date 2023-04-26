@@ -14,6 +14,12 @@
         "registration" : "Registrovat",
         "passwordLength" : "*Heslo musí obsahovat alespoň 6 znaků"
     },
+    "login" : {
+        "login" : "Přihlášení",
+        "email" : "Email",
+        "password" : "Heslo",
+        "loginButton" : "Přihlásit se"
+    },
     "serverMessages" : {
         "errorServer" : "Neočekávaná chyba. Zkuste tuto akci později",
         "conflictEmail" : "Účet se zadaným emailem již existuje"
@@ -22,6 +28,7 @@
         "wrongEmail" : "Neplatná emailová adresa",
         "passwordNotMatch" : "Hesla se neshodují",
         "passwordCharacter" : "Heslo musí mít alespoň 6 znaků",
-        "fillFields" : "Vyplňte všechna pole"
+        "fillFields" : "Vyplňte všechna pole",
+        "invalidLogin" : "Neplatné přihlašovací údaje"
     }
 }

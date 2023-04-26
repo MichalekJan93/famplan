@@ -6,8 +6,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import { apiPost } from "../../function/apiPost";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { controlEmail } from "../../function/controlInput";
+import './RegistrationForm.css'
 
 const RegistrationForm = () => {
 
@@ -24,7 +25,7 @@ const RegistrationForm = () => {
     const errorMessage = useRef(null);
     const errorParagraph = useRef(null);
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     useEffect(() => {
         if(userEmail.length <= 0){

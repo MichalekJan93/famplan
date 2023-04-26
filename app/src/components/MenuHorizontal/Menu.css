@@ -1,0 +1,18 @@
+/* ===== HORIZONTAL MENU ===== */
+header{
+    padding: 1rem;
+}
+
+header .logo{
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+header .logo img{
+    width: 30px;
+}
+
+header .logo p{
+    font-weight: 600;
+}
