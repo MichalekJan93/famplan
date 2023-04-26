@@ -18,16 +18,57 @@ header .logo p{
 }
 
 /* ===== VERTICAL MENU ===== */
+
+.vertical-menu-box{
+    position: relative;
+}
 .vertical-menu{
     display: flex;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 0px;
     flex-direction: column;
+    overflow-x: hidden;
     align-items: center;
     justify-content: space-between;
-    width: 160px;
+    transition: 500ms;
     min-height: 800px;
     height: 100vh;
     background-color: #070707;
+}
+
+.vertical-menu.active{
+    width: 130px;
     padding: 2rem 1rem;
+}
+
+.vertical-menu .control-menu{
+    position: absolute;
+    top: 4px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-image: url('../assets/images/icon-left.png');
+    background-size: 32px;
+    background-repeat:no-repeat;
+    background-position: center;
+    transition: 500ms;
+    transform: rotate(180deg);
+}
+
+.vertical-menu .control-menu.active{
+    left: 100px;
+    transform: rotate(0deg);
+}
+
+.vertical-menu .control-menu:hover{
+    background-image: url('../assets/images/icon-left-hover.png');
+}
+
+.vertical-menu .logo{
+    margin-top: 1rem;
 }
 
 .vertical-menu .logo img{
@@ -37,14 +78,7 @@ header .logo p{
 .vertical-menu .menu-list{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-}
-
-.vertical-menu .menu-list .menu-box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 4rem;
 }
 
 .vertical-menu .menu-item{
@@ -55,22 +89,6 @@ header .logo p{
     background-size: 35px;
     background-repeat:no-repeat;
     background-position: center;
-}
-
-.menu-item:hover + p{
-    color: #91BF76;
-}
-
-.menu-box  p{
-    text-align: center;
-    color: rgb(199, 199, 199);
-    transition: all 200ms ease-in;
-    font-size: 0.9rem;
-    cursor: default;
-}
-
-.menu-box  p.active{
-    color: #91BF76;
 }
 
 .menu-box .menu-item.menu-item-dashboard{
@@ -113,16 +131,16 @@ header .logo p{
     display: flex;
 }
 
+.user-set .menu-box .menu-item{
+    background-size: 30px !important;
+}
+
 .user-set .menu-box .menu-item.menu-item-setting{
     background-image: url('../assets/images/icon-setting.png');
 }
 
 .user-set .menu-box .menu-item.menu-item-setting:hover{
     background-image: url('../assets/images/icon-setting-hover.png');
-}
-
-.user-set .menu-box .menu-item{
-    background-size: 30px !important;
 }
 
 .user-set .menu-box .menu-item.menu-item-logout{
