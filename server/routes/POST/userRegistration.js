@@ -28,7 +28,7 @@ app.post("/api/registrationUser", (req, res) => {
     const userCreateData = {
         email: userData.email,
         passwordHash: hashPassword(userData.password),
-        isAdmin: false
+        isAdmin: false 
     };
 
     model.create(userCreateData)

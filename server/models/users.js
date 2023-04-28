@@ -45,4 +45,4 @@ const usersSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("labels", usersSchema);
+module.exports = mongoose.model("usdt", usersSchema);

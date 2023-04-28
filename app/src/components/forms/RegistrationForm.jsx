@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from "react";
 import { apiPost } from "../../function/apiPost";
 import { useTranslation } from "react-i18next";
 import { controlEmail } from "../../function/controlInput";
-import './RegistrationForm.css'
+import './RegLogForm.css'
 
 const RegistrationForm = () => {
 
@@ -58,7 +58,7 @@ const RegistrationForm = () => {
                     if(userPassword1.length >= 6){
                         try{
                             const res = await apiPost("http://localhost:5000/api/registrationUser", data);
-                            console.log(res);
+                            console.log(res); //TODO Doplni co se stane po uspesne registraci
                         }catch(error){
                             if(error.status === 409){
                                 setBorderColor(inputEmail.current, false);
