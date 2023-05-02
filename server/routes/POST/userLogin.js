@@ -1,6 +1,7 @@
 const express = require('express');
 const Joi = require('joi');
 const model = require('../../models/userRegistration');
+const modelUserData = require('../../models/userData');
 const app = express();
 const bcrypt = require("bcrypt");
 
@@ -55,7 +56,10 @@ app.post("/api/auth", (req, res) => {
                     res.status(500).send("There was an error when logging in");
                     return;
                 }
-                res.send(getPublicSessionData(sessionUser));
+                modelUserData.findOne({email: sessionUser.email})
+                    .then(user => {
+                        res.send(user);
+                    })
             });
         })
         .catch(() => res.status(500).send("An error occurred while searching for a user"));

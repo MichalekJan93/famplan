@@ -1,7 +1,8 @@
 import { apiPost } from "../../function/apiPost";
 import { useTranslation } from "react-i18next";
 import { controlEmail } from "../../function/controlInput";
-import { useState, useRef, useEffect } from "react";
+import Cookies from 'universal-cookie';
+import { useState, useRef} from "react";
 import './RegLogForm.css'
 
 const LoginForm = () => {
@@ -13,11 +14,12 @@ const LoginForm = () => {
     const inputPassword = useRef(null);
     const labelEmail = useRef(null);
     const labelPassword = useRef(null);
-
     const errorMessage = useRef(null);
     const errorParagraph = useRef(null);
 
     const { t } = useTranslation();
+
+    const cookies = new Cookies();
 
     const sendData = async (event) => {
         event.preventDefault();
@@ -29,18 +31,19 @@ const LoginForm = () => {
             if(controlEmail(userEmail)){
                 try {
                     const res = await apiPost("http://localhost:5000/api/auth", data);
-                    if(!res.verify === "-1"){
-                        //TODO Doplnit co se stane po uspesne registraci
+                    if(!res.verify){
+                        cookies.set('use_reg', 1, { path: '/', expires: new Date(Date.now()+2629746000) });
+                        localStorage.setItem("us_dat", JSON.stringify(res));
+                        window.open("http://localhost:3000/app", "_self");
                     } else{
                         setBorderColor(inputEmail.current, false);
                         setColor(labelEmail.current, false);
-                        setError(t("forMessages.invalidLogin"));
                         setBorderColor(inputPassword.current, false);
                         setColor(labelPassword.current, false);
-                        setError(t("forMessages.fillFields"));
+                        setError(t("forMessages.invalidLogin"));
                     }
                 } catch (error) {
-                    console.log("Iny to errorek") //TODO
+                    setError(t("serverMessages.errorServer"));
                 }
             } else{
                 setBorderColor(inputEmail.current, false);

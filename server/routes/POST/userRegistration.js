@@ -25,20 +25,19 @@ app.post("/api/registrationUser", (req, res) => {
         return;
     }
 
-    const userCreateData = {
+    const createUser = {
         email: userData.email,
         passwordHash: hashPassword(userData.password),
-        isAdmin: false 
     };
 
-    model.create(userCreateData)
+    model.create(createUser)
         .then(savedUser => {
             const result = savedUser.toObject();
-            /* delete result.passwordHash; */
+            delete result.passwordHash;
             res.send(result);
         })
-        .catch(e => {
-            if (e.code === 11000) {
+        .catch(error => {
+            if (error.code === 11000) {
                 res.status(409).send("An account with the specified email already exists");
                 return;
             }

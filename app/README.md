@@ -14,5 +14,6 @@ Overall, the app will serve as a central place to organize and plan family time 
 npm init --yes
 npm install dotenv
 npm install i18next react-i18next
-$ npm install react-router-dom@~6.7.0
+npm install react-router-dom@~6.7.0
+npm install universal-cookie
 ```

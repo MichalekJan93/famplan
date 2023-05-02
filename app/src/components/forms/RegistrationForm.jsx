@@ -57,15 +57,16 @@ const RegistrationForm = () => {
                 if(userPassword1 === userPassword2){
                     if(userPassword1.length >= 6){
                         try{
-                            const res = await apiPost("http://localhost:5000/api/registrationUser", data);
-                            console.log(res); //TODO Doplni co se stane po uspesne registraci
+                            const resRegUser = await apiPost("http://localhost:5000/api/registrationUser", data);
+                            const resRegUserData = await apiPost("http://localhost:5000/api/createUserData", resRegUser);
+                            window.open("http://localhost:3000/app")
                         }catch(error){
                             if(error.status === 409){
                                 setBorderColor(inputEmail.current, false);
                                 setColor(labelEmail.current, false);
                                 setError(t("serverMessages.conflictEmail"));
                             } else {
-                                console.log("Iny to errorek") //TODO
+                                setError(t("serverMessages.errorServer"));
                             }
                         }
                         return;

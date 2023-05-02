@@ -21,7 +21,7 @@
         "loginButton" : "Přihlásit se"
     },
     "serverMessages" : {
-        "errorServer" : "Neočekávaná chyba. Zkuste tuto akci později",
+        "errorServer" : "Chyba serveru. Zkuste tuto akci později",
         "conflictEmail" : "Účet se zadaným emailem již existuje"
     },
     "forMessages" : {

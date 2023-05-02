@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const usersSchema = new mongoose.Schema({
+const userData = new mongoose.Schema({
     role: String,
+    userID: mongoose.Schema.Types.ObjectId,
     name: String,
+    email: String,
     teamMembers: {
         type: Map,
         of: new Schema({
@@ -45,4 +48,4 @@ const usersSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("usdt", usersSchema);
+module.exports = mongoose.model("usdts", userData);

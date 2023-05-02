@@ -21,7 +21,7 @@
         "loginButton" : "Login"
     },
     "serverMessages" : {
-        "errorServer" : "Unexpected mistake. Try this action later",
+        "errorServer" : "Server error. Try this action later",
         "conflictEmail" : "An account with this email already exists"
     },
     "forMessages" : {
