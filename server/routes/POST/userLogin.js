@@ -5,6 +5,7 @@ const modelUserData = require('../../models/userData');
 const app = express();
 const bcrypt = require("bcrypt");
 
+
 function validate(data) {
     const schema = Joi.object({
         email: Joi.string(),
@@ -24,17 +25,6 @@ function verifyPassword(passwordHash, password) {
     return bcrypt.compareSync(password, passwordHash);
 }
 
-/**
- * The function returns data about the logged-in user
- * @param {*} sessionData TODO
- * @returns {object} The function returns a new object created by the object sessionData.
- */
-function getPublicSessionData(sessionData) {
-    const allowedKeys = ["_id", "email"];
-    const entries = allowedKeys.map(key => [key, sessionData[key]]);
-    return Object.fromEntries(entries);
-}
-
 app.post("/api/auth", (req, res) => {
     const loginData = req.body;
     const {error} = validate(req.body);
@@ -45,24 +35,22 @@ app.post("/api/auth", (req, res) => {
     model.findOne({email: loginData.email})
         .then(user => {
             if (!user || !verifyPassword(user.passwordHash, loginData.password)) {
-                res.send({"verify" : "-1"});
+                res.send({"verify" : -1, "msg" : "Invalid login details"});
                 return;
             }
             const sessionUser = user.toObject();
             delete sessionUser.passwordHash;
             req.session.user = sessionUser;
+            req.session.userID = sessionUser._id;
             req.session.save((err) => {
                 if (err) {
-                    res.status(500).send("There was an error when logging in");
+                    res.status(500).send({"verify" : -1, "msg" : "There was an error when logging in"});
                     return;
                 }
-                modelUserData.findOne({email: sessionUser.email})
-                    .then(user => {
-                        res.send(user);
-                    })
+                res.send({"verify" : 1})
             });
         })
-        .catch(() => res.status(500).send("An error occurred while searching for a user"));
+        .catch(() => res.status(500).send({"verify" : -1, "msg" : "An error occurred while searching for a user"}));
 });
 
 module.exports = app;

@@ -1,14 +1,15 @@
 /**
- * Function for get data to server with GET method
+ * Function for send data to server with DELETE method
  * @param {string} url endpoint url
  * @returns
  */
-export const apiGet = (url) => {
+export const apiDelete = (url) => {
     return fetch(url,{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-        }
+        },
+        method: "DELETE",
     })
     .then(res => {
         if (!res.ok) {

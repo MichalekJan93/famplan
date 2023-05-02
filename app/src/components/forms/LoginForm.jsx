@@ -31,9 +31,8 @@ const LoginForm = () => {
             if(controlEmail(userEmail)){
                 try {
                     const res = await apiPost("http://localhost:5000/api/auth", data);
-                    if(!res.verify){
-                        cookies.set('use_reg', 1, { path: '/', expires: new Date(Date.now()+2629746000) });
-                        localStorage.setItem("us_dat", JSON.stringify(res));
+                    console.log(res);
+                    if(res.verify === 1){
                         window.open("http://localhost:3000/app", "_self");
                     } else{
                         setBorderColor(inputEmail.current, false);

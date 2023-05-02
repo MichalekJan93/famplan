@@ -6,6 +6,7 @@
 import React, {useRef, useState, useEffect} from "react";
 import logo from '../../assets/images/famplan-logo.png'
 import { useTranslation } from "react-i18next";
+import { apiDelete } from "../../function/apiDelete";
 import './Menu.css'
 
 const Menu = () => {
@@ -18,6 +19,19 @@ const Menu = () => {
     const showMenu = () => {
         verticalMenu.current.classList.toggle("active");
         controlMenu.current.classList.toggle("active");
+    }
+
+    const logout = async () => {
+        try {
+            const res = await apiDelete("http://localhost:5000/api/auth");
+            if(res.logOut === true){
+                window.open("http://localhost:3000/login", "_self");
+            } else{
+                console.log(res.msg);
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return(
@@ -43,7 +57,7 @@ const Menu = () => {
             <div className="user-set">
                 <div className="menu-box">
                         <div className="menu-item menu-item-setting"></div>
-                        <div className="menu-item menu-item-logout"></div>
+                        <div className="menu-item menu-item-logout" onClick={logout}></div>
                 </div>
             </div>
         </div>
