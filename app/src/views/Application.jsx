@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Menu from "../components/MenuVertical/Menu";
 import AppView from "../components/AppView/AppView";
-import { apiGet } from "../utils/apiGET";
+import { apiPost } from "../utils/apiPost";
 import "./Application.css"
 
 const Application = () => {
+
     useEffect(() => {
         const checkLogin = async () => {
             try {
-                const res = await apiGet("http://localhost:5000/api/userData");
-                console.log('res',res);
-                /* localStorage.setItem("us_dat", JSON.stringify()); */
+                const res = await apiPost("http://localhost:5000/api/userData", {userID : localStorage.getItem('us_dat')});
+                console.log(res);
             } catch (error) {
                 console.log(error)
             }

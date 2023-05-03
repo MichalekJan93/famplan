@@ -59,7 +59,9 @@ const RegistrationForm = () => {
                         try{
                             const resRegUser = await apiPost("http://localhost:5000/api/registrationUser", data);
                             const resRegUserData = await apiPost("http://localhost:5000/api/createUserData", resRegUser);
-                            window.open("http://localhost:3000/app")
+                            if(resRegUserData.request.status < 300){
+                                window.open("http://localhost:3000/app", "_self")
+                            }
                         }catch(error){
                             if(error.status === 409){
                                 setBorderColor(inputEmail.current, false);

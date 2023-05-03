@@ -3,11 +3,6 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 const express = require('express');
 const app = express();
-/* const postUserRegistration = require('./routes/POST/userRegistration'); */
-/* const postCreateUserData = require('./routes/POST/createUserData'); */
-/* const postUserLogin = require('./routes/POST/userLogin'); */
-/* const deleteUserLogout = require('./routes/DELETE/userLogout'); */
-/* const getUserData = require('./routes/GET/userData'); */
 const expressSession = require("express-session");
 const cors = require('cors');
 const bcrypt = require("bcrypt");
@@ -24,13 +19,10 @@ app.use(expressSession({
         httpOnly: true
     }
 }));
-app.use(cors({ withCredentials: true }));
-
-/* app.use("/", postUserRegistration); */
-/* app.use("/", postUserLogin); */
-/* app.use("/", postCreateUserData); */
-/* app.use("/", deleteUserLogout); */
-/* app.use("/", getUserData); */
+app.use(cors({ 
+    credentials: true, 
+    origin: 'http://localhost:3000' 
+}));
 
 app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT} ...`));
 
@@ -123,7 +115,7 @@ app.post("/api/auth", (req, res) => {
                     res.status(500).send({"verify" : -1, "msg" : "There was an error when logging in"});
                     return;
                 }
-                res.send({"verify" : 1})
+                res.send({"verify" : 1, "userID" : req.session.user._id})
             });
         })
         .catch(() => res.status(500).send({"verify" : -1, "msg" : "An error occurred while searching for a user"}));
@@ -186,9 +178,8 @@ app.post("/api/registrationUser", (req, res) => {
         });
 })
 
-app.get('/api/userData', (req, res) => {
-    const id = req.session.user;
-    console.log(id);
+app.post('/api/userData', (req, res) => {
+    const id = req.body.userID;
     modelUserData.findOne({userID: id})
         .then(user => {
         res.send(user);
