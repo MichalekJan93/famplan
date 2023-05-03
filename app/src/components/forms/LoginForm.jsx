@@ -1,6 +1,6 @@
-import { apiPost } from "../../function/apiPost";
+import { apiPost } from "../../utils/apiPost";
 import { useTranslation } from "react-i18next";
-import { controlEmail } from "../../function/controlInput";
+import { controlEmail } from "../../utils/controlInput";
 import Cookies from 'universal-cookie';
 import { useState, useRef} from "react";
 import './RegLogForm.css'
@@ -31,7 +31,6 @@ const LoginForm = () => {
             if(controlEmail(userEmail)){
                 try {
                     const res = await apiPost("http://localhost:5000/api/auth", data);
-                    console.log(res);
                     if(res.verify === 1){
                         window.open("http://localhost:3000/app", "_self");
                     } else{

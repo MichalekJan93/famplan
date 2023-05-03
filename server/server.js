@@ -24,7 +24,7 @@ app.use(expressSession({
         httpOnly: true
     }
 }));
-app.use(cors());
+app.use(cors({ withCredentials: true }));
 
 /* app.use("/", postUserRegistration); */
 /* app.use("/", postUserLogin); */
@@ -118,7 +118,6 @@ app.post("/api/auth", (req, res) => {
             const sessionUser = user.toObject();
             delete sessionUser.passwordHash;
             req.session.user = sessionUser;
-            req.session.userID = sessionUser._id;
             req.session.save((err) => {
                 if (err) {
                     res.status(500).send({"verify" : -1, "msg" : "There was an error when logging in"});
@@ -188,14 +187,11 @@ app.post("/api/registrationUser", (req, res) => {
 })
 
 app.get('/api/userData', (req, res) => {
-    const id = req.session.userID;
-    console.log("id", id);
+    const id = req.session.user;
+    console.log(id);
     modelUserData.findOne({userID: id})
         .then(user => {
         res.send(user);
         })
         .catch(() => {res.status(404).send("Failed to retrieve any data from the database")})
 });
-
-
-

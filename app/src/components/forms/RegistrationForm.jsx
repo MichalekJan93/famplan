@@ -5,9 +5,9 @@
  */
 
 import { useState, useRef, useEffect } from "react";
-import { apiPost } from "../../function/apiPost";
+import { apiPost } from "../../utils/apiPost";
 import { useTranslation } from "react-i18next";
-import { controlEmail } from "../../function/controlInput";
+import { controlEmail } from "../../utils/controlInput";
 import './RegLogForm.css'
 
 const RegistrationForm = () => {

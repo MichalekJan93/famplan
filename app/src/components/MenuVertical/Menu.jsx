@@ -6,7 +6,7 @@
 import React, {useRef, useState, useEffect} from "react";
 import logo from '../../assets/images/famplan-logo.png'
 import { useTranslation } from "react-i18next";
-import { apiDelete } from "../../function/apiDelete";
+import { apiDelete } from "../../utils/apiDelete";
 import './Menu.css'
 
 const Menu = () => {
