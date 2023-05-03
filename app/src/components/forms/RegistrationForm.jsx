@@ -59,7 +59,7 @@ const RegistrationForm = () => {
                         try{
                             const resRegUser = await apiPost("http://localhost:5000/api/registrationUser", data);
                             const resRegUserData = await apiPost("http://localhost:5000/api/createUserData", resRegUser);
-                            if(resRegUserData.request.status < 300){
+                            if(resRegUserData.request.status < 300){ //TODO pod 300?
                                 window.open("http://localhost:3000/app", "_self")
                             }
                         }catch(error){

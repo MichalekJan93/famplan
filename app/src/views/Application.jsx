@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../components/MenuVertical/Menu";
 import AppView from "../components/AppView/AppView";
-import { apiPost } from "../utils/apiPost";
+import { apiGet } from "../utils/apiGET";
 import "./Application.css"
 
 const Application = () => {
@@ -9,8 +9,10 @@ const Application = () => {
     useEffect(() => {
         const checkLogin = async () => {
             try {
-                const res = await apiPost("http://localhost:5000/api/userData", {userID : localStorage.getItem('us_dat')});
-                console.log(res);
+                const res = await apiGet("http://localhost:5000/api/userData");
+                if(res.data !== ""){
+                    localStorage.setItem("us_dat", JSON.stringify(res.data));
+                }
             } catch (error) {
                 console.log(error)
             }

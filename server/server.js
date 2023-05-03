@@ -110,6 +110,7 @@ app.post("/api/auth", (req, res) => {
             const sessionUser = user.toObject();
             delete sessionUser.passwordHash;
             req.session.user = sessionUser;
+            req.session.userID = sessionUser._id;
             req.session.save((err) => {
                 if (err) {
                     res.status(500).send({"verify" : -1, "msg" : "There was an error when logging in"});
@@ -178,8 +179,8 @@ app.post("/api/registrationUser", (req, res) => {
         });
 })
 
-app.post('/api/userData', (req, res) => {
-    const id = req.body.userID;
+app.get('/api/userData', (req, res) => {
+    const id = req.session.userID;
     modelUserData.findOne({userID: id})
         .then(user => {
         res.send(user);

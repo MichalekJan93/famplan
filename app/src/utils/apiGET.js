@@ -5,7 +5,7 @@ import axios from 'axios';
  * @returns
  */
 export const apiGet = (url) => {
-    return axios.get(url)
+    return axios.get(url, { withCredentials: true })
         .then((result) => {return result})
         .catch((error) => {return error})
 }

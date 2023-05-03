@@ -32,7 +32,6 @@ const LoginForm = () => {
                 try {
                     const res = await apiPost("http://localhost:5000/api/auth", data);
                     if(res.verify === 1 && res.userID){
-                        localStorage.setItem("us_dat", res.userID);
                         window.open("http://localhost:3000/app", "_self");
                     } else{
                         setBorderColor(inputEmail.current, false);

@@ -18,4 +18,5 @@ npm install joi@~17.6.0
 npm install cors
 npm i bcrypt@~5.1.0
 npm i express-session@~1.17.3
+npm install axios
 ```

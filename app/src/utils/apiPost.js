@@ -6,7 +6,7 @@ import axios from 'axios';
  * @returns
  */
 export const apiPost = (url, data) => {
-    return axios.post(url, data)
+    return axios.post(url, data, { withCredentials: true })
         .then(response => {return response.data})
         .catch(error => {return error});
 }
