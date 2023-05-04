@@ -1,3 +1,9 @@
+/**
+ * COMPONENT RegistrationForm
+ * Component for login form
+ * MIJN 230424 - Created component
+ */
+
 import { apiPost } from "../../utils/apiPost";
 import { useTranslation } from "react-i18next";
 import { controlEmail } from "../../utils/controlInput";

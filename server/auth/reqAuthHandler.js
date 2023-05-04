@@ -1,11 +1,12 @@
-const reqAuthHandler = (model) => {
-    (req, res, next) => {
+const modelUserRegistration = require('../models/userRegistration');
+
+const reqAuthHandler = (req, res, next) => {
         const user = req.session.user;
         if (!user) {
             res.status(401).send("User not logged in");
             return;
         }
-        model.findById(user._id)
+        modelUserRegistration.findById(user._id)
             .then((user) => {
                 if (user === null) {
                     req.session.destroy((err) => {
@@ -22,7 +23,6 @@ const reqAuthHandler = (model) => {
             .catch(() => {
                 res.status(500).send("An authentication error occurred");
             });
-    }
 }
 
 

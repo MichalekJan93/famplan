@@ -3,10 +3,11 @@
  * Component for creating vertical menu
  * MIJN 230425 - Created component
  */
-import React, {useRef, useState, useEffect} from "react";
+import React, {useRef, useContext} from "react";
 import logo from '../../assets/images/famplan-logo.png'
 import { useTranslation } from "react-i18next";
 import { apiDelete } from "../../utils/apiDelete";
+import { DataContext } from "../../views/Application";
 import './Menu.css'
 
 const Menu = () => {
@@ -15,6 +16,7 @@ const Menu = () => {
 
     const verticalMenu = useRef(null);
     const controlMenu = useRef(null);
+    const userData = useContext(DataContext);
 
     const showMenu = () => {
         verticalMenu.current.classList.toggle("active");

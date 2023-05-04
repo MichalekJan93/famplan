@@ -31,6 +31,9 @@ mongoose
     .then(() => console.log("Connect with database"))
     .catch(error => console.error("Connect failed...", error));
 
+
+const reqAuthHandler = require('./auth/reqAuthHandler');
+
 /* ==================== MODELS ==================== */
 
 const modelUserData = require('./models/userData');
@@ -82,7 +85,7 @@ function hashPassword(password, saltRounds = 10) {
     return bcrypt.hashSync(password, saltRounds);
 }
 
-/* ==================== FETCH ==================== */
+/* ==================== REQUESTS ==================== */
 
 app.delete("/api/auth", (req, res) => {
     req.session.destroy((err) => {
@@ -91,6 +94,7 @@ app.delete("/api/auth", (req, res) => {
             return;
         }
     res.send({logOut: true, msg: "User logged out"});
+    res.end();
     })
 })
 
@@ -168,6 +172,7 @@ app.post("/api/registrationUser", (req, res) => {
         .then(savedUser => {
             const result = savedUser.toObject();
             delete result.passwordHash;
+            req.session.userID = result._id;
             res.send(result);
         })
         .catch(error => {
@@ -179,9 +184,8 @@ app.post("/api/registrationUser", (req, res) => {
         });
 })
 
-app.get('/api/userData', (req, res) => {
-    const id = req.session.userID;
-    modelUserData.findOne({userID: id})
+app.get('/api/userData', reqAuthHandler, (req, res) => {
+    modelUserData.findOne({userID: req.session.userID})
         .then(user => {
         res.send(user);
         })
