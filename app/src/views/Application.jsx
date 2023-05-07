@@ -19,10 +19,11 @@ const Application = () => {
                 }else if(res.response.status === 401){
                     window.open("http://localhost:3000/login", "_self");
                 } else{
-                    window.open("http://localhost:3000/login", "_self");    
+                    window.open("http://localhost:3000/login", "_self");
                 }
             } catch (error) {
                 console.log(error)
+                window.open("http://localhost:3000/login", "_self");
             }
         }
         checkLogin();

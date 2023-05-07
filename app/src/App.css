@@ -27,6 +27,12 @@
   display: none;
 }
 
+/* ===== FONTS ===== */
+h1{
+  font-size: clamp(20px, 5vw, 30px);
+  font-weight: 600;
+}
+
 /* ===== BUTTONS ===== */
 .btn{
   border-radius: var(--border-radius);
@@ -39,6 +45,10 @@
 }
 
 /* ===== COLORS ===== */
+
+.cldrbl{
+  color: #0C2E2F;
+}
 
 .clgr{
   color: #91BF76;
@@ -54,6 +64,10 @@
 
 .clrd{
   color: #EF475E;
+}
+
+.clwt{
+  color: #ffff;
 }
 
 .bggr{

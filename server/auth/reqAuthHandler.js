@@ -1,12 +1,12 @@
 const modelUserRegistration = require('../models/userRegistration');
 
 const reqAuthHandler = (req, res, next) => {
-        const user = req.session.user;
-        if (!user) {
+        const userID = req.session.userID;
+        if (!userID) {
             res.status(401).send("User not logged in");
             return;
         }
-        modelUserRegistration.findById(user._id)
+        modelUserRegistration.findById(userID)
             .then((user) => {
                 if (user === null) {
                     req.session.destroy((err) => {

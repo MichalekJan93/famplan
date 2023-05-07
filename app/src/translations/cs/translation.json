@@ -30,5 +30,8 @@
         "passwordCharacter" : "Heslo musí mít alespoň 6 znaků",
         "fillFields" : "Vyplňte všechna pole",
         "invalidLogin" : "Neplatné přihlašovací údaje"
+    },
+    "notification" : {
+        "greetings" : "Ahoj"
     }
 }

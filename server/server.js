@@ -6,6 +6,8 @@ const app = express();
 const expressSession = require("express-session");
 const cors = require('cors');
 const bcrypt = require("bcrypt");
+const fs = require("fs");
+const insertImg = require("./function/insertImg");
 
 require("dotenv").config();
 
@@ -113,14 +115,13 @@ app.post("/api/auth", (req, res) => {
             }
             const sessionUser = user.toObject();
             delete sessionUser.passwordHash;
-            req.session.user = sessionUser;
             req.session.userID = sessionUser._id;
             req.session.save((err) => {
                 if (err) {
                     res.status(500).send({"verify" : -1, "msg" : "There was an error when logging in"});
                     return;
                 }
-                res.send({"verify" : 1, "userID" : req.session.user._id})
+                res.send({"verify" : 1, "userID" : sessionUser._id})
             });
         })
         .catch(() => res.status(500).send({"verify" : -1, "msg" : "An error occurred while searching for a user"}));
@@ -142,6 +143,7 @@ app.post("/api/createUserData", (req, res) => {
         userID: userData._id,
         name: userData.email,
         email: userData.email,
+        icon: fs.readFileSync('../app/src/assets/images/userIcon/icon-user-fox.png'),
         teamMembers: {},
         toDoTasks: {},
         events: {},
@@ -150,7 +152,15 @@ app.post("/api/createUserData", (req, res) => {
     modelUserData.create(userCreateData)
         .then(savedData => {
             const result = savedData.toObject();
-            res.send(result);
+            const folderName = './users/' + userData._id;
+            try {
+                if(!fs.existsSync(folderName)) {
+                    fs.mkdirSync(folderName);
+                     res.send(result);
+                }
+            } catch (error) {
+                res.status(500).send("An error occurred while searching for a user");
+            }
         })
         .catch(() => res.status(500).send("An error occurred while searching for a user"));
 });

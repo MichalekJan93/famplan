@@ -1,6 +1,6 @@
 import React from "react";
 
-import MenuAppView from "../MenuAppView/MenuAppView";
+import MenuAppView from "./MenuAppView/MenuAppView";
 
 import "./AppView.css";
 

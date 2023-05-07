@@ -1,0 +1,53 @@
+.app-view-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* ===== Icon ===== */
+
+.app-view-icons{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.view-menu-icon{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.view-menu-icon.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none !important;
+}
+
+.icon-image{
+    width: 30px;
+    height: 30px;
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.icon-image.avatar{
+    width: 40px;
+    height: 40px;
+    background-size: 40px;
+}
+
+.icon-notification{
+    position: absolute;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    top: 20px;
+    right: 0px;
+    text-align: center;
+}

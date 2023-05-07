@@ -58,30 +58,21 @@ const RegistrationForm = () => {
                     if(userPassword1.length >= 6){
                         try{
                             const resRegUser = await apiPost("http://localhost:5000/api/registrationUser", data);
-                            console.log("1")
-                            console.log(resRegUser)
                             if(resRegUser._id){
-                                console.log("2")
                                 const resRegUserData = await apiPost("http://localhost:5000/api/createUserData", resRegUser);
-                                console.log(resRegUserData);
                                 if(resRegUserData._id){
-                                    console.log("3")
-                                    window.open("http://localhost:3000/app", "_self")
+                                    window.open("http://localhost:3000/app", "_self");
                                 } else{
-                                    console.log("33")
                                     setError(t("serverMessages.errorServer"));
                                 }
                             } else if (resRegUser.response.status === 409){
-                                console.log("22")
                                 setBorderColor(inputEmail.current, false);
                                 setColor(labelEmail.current, false);
                                 setError(t("serverMessages.conflictEmail"));
                             } else {
-                                console.log("222")
                                 setError(t("serverMessages.errorServer"));
                             }
                         }catch(error){
-                            console.log("11")
                             setError(t("serverMessages.errorServer"));
                         }
                         return;

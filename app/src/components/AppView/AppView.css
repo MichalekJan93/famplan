@@ -1,5 +1,6 @@
 .app-view{
-    padding: 2rem 70px;
+    padding: 2rem;
     min-height: 800px;
     height: 100vh;
+    width: 100%;
 }

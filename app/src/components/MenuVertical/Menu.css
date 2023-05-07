@@ -6,6 +6,7 @@
     z-index: 1;
     top: 0;
     left: 0;
+    min-width: 0px;
     width: 0px;
     padding: 2rem 0rem;
     flex-direction: column;
@@ -19,7 +20,7 @@
 }
 
 .vertical-menu.active{
-    width: 150px;
+    min-width: 150px;
     padding: 2rem 1rem;
 }
 

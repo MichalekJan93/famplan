@@ -30,5 +30,8 @@
         "passwordCharacter" : "Password must be at least 6 characters long",
         "fillFields" : "Fill in all fields",
         "invalidLogin" : "Invalid login details"
+    },
+    "notification" : {
+        "greetings" : "Hi"
     }
 }

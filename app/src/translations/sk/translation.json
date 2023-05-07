@@ -29,5 +29,8 @@
         "passwordNotMatch" : "Heslá sa nezhodujú",
         "passwordCharacter" : "Heslo musí mať aspoň 6 znakov",
         "fillFields" : "Neplatné prihlasovacie údaje"
+    },
+    "notification" : {
+        "greetings" : "Ahoj"
     }
 }
