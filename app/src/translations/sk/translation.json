@@ -32,5 +32,42 @@
     },
     "notification" : {
         "greetings" : "Ahoj"
+    },
+    "months" : {
+        "1" : "január",
+        "2" : "február",
+        "3": "marec",
+        "4": "apríl",
+        "5": "máj",
+        "6": "jún",
+        "7": "júl",
+        "8": "august",
+        "9": "september",
+        "10": "október",
+        "11": "november",
+        "12" : "december"
+    },
+    "monthsCalendar" : {
+        "1" : "Január",
+        "2" : "Február",
+        "3": "Marec",
+        "4": "Apríl",
+        "5": "Máj",
+        "6": "Jún",
+        "7": "Júl",
+        "8": "August",
+        "9": "September",
+        "10": "Október",
+        "11": "November",
+        "12" : "December"
+    },
+    "week" : {
+        "Mo" : "Po",
+        "Tu" : "Út",
+        "We" : "St",
+        "Th" : "Št",
+        "Fr" : "Pi",
+        "Sa" : "So",
+        "Su" : "Ne"
     }
 }

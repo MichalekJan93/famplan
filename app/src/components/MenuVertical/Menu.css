@@ -84,6 +84,10 @@
     background-image: url('../../assets/images/icon-calendar.png');
 }
 
+.menu-item.menu-item-calendar.active{
+    background-image: url('../../assets/images/icon-calendar-hover.png');
+}
+
 .menu-item.menu-item-calendar:hover{
     background-image: url('../../assets/images/icon-calendar-hover.png');
 }
@@ -92,12 +96,20 @@
     background-image: url('../../assets/images/icon-planner.png');
 }
 
+.menu-item.menu-item-family-plans.active{
+    background-image: url('../../assets/images/icon-planner-hover.png');
+}
+
 .menu-item.menu-item-family-plans:hover{
     background-image: url('../../assets/images/icon-planner-hover.png');
 }
 
 .menu-item.menu-item-shopping-list{
     background-image: url('../../assets/images/icon-baught.png');
+}
+
+.menu-item.menu-item-shopping-list.active{
+    background-image: url('../../assets/images/icon-baught-hover.png');
 }
 
 .menu-item.menu-item-shopping-list:hover{

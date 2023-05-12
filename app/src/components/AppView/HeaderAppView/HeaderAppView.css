@@ -1,0 +1,17 @@
+.app-view-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.app-view-header-date{
+    display: flex;
+    gap: 10px;
+    align-items: end;
+}
+
+.app-view-header-date .date{
+    font-size: 1.2rem;
+    font-weight: 600;
+}

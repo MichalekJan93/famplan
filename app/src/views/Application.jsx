@@ -9,6 +9,7 @@ export const DataContext = createContext();
 const Application = () => {
 
     const [dataFromDtb, setDataFromDtb] = useState({});
+    const [showComponent, setShowComponent] = useState("Dashboard");
 
     useEffect(() => {
         const checkLogin = async () => {
@@ -29,11 +30,15 @@ const Application = () => {
         checkLogin();
     }, [])
 
+    const switchComponent = (component) => {
+        setShowComponent(component);
+    }
+
     return (
         <div className="application">
             <DataContext.Provider value={dataFromDtb}>
-                <Menu />
-                <AppView />
+                <Menu switchComponent = {switchComponent}/>
+                <AppView showComponent={showComponent}/>
             </DataContext.Provider>
         </div>
     )
