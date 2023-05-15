@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import '../Calendar.css';
 import DayBox from "./DayBox";
+import { DataContext } from "../../../views/Application";
 
 const MonthCalendar = () => {
     const date = new Date();
@@ -9,7 +10,11 @@ const MonthCalendar = () => {
     const [currentMonth, setCurrentMonth] = useState(date.getMonth() + 1 );
     const [currentYear, setCurrentYear] = useState(date.getFullYear());
 
-    const [days, setDays] = useState([]);
+    const [actuallyMonthDays, setActuallyMonthDays] = useState([]);
+    const [nextMonthDays, setNextMonthDays] = useState([]);
+    const [lastMonthDays, setLastMonthDays] = useState([]);
+
+    const userData = useContext(DataContext);
 
     const { t } = useTranslation();
 
@@ -27,15 +32,15 @@ const MonthCalendar = () => {
     }
 
     const lastDateOfMonth = () => {
-        return new Date(currentYear, currentMonth + 1, 0).getDate();
-    }
-
-    const lastDayOfMonth = () => {
-        return new Date(currentYear, currentMonth, lastDateOfMonth()).getDay() + 1;
+        return new Date(currentYear, currentMonth, 0).getDate();
     }
 
     const lastDateOfLastMonth = () => {
-        return new Date(currentYear, currentMonth, 0).getDate();
+        return new Date(currentYear, currentMonth - 1, 0).getDate();
+    }
+
+    const lastDayOfLastMonth = () => {
+        return new Date(currentYear, currentMonth - 1, 0).getDay();
     }
 
     const controlCalendar = (operation) => {
@@ -56,17 +61,55 @@ const MonthCalendar = () => {
         }
     }
 
-    const createArrayDays = () => {
+    const createArrayActuallyMonthDays = () => {
         let days = [];
         for( let i = 1; i <= lastDateOfMonth(); i++ ){
             days.push(i);
         }
-        setDays(days);
+        setActuallyMonthDays(days);
+    }
+
+    const createArrayNextMonthDays = () => {
+        let days = [];
+        for(let i = 1; i <= 8 - firstDayOfMonth(); i++){
+            days.push(i)
+        }
+        setNextMonthDays(days)
+    }
+
+    const createArrayLastMonthDays = () => {
+        let days = [];
+        for(let i = lastDayOfLastMonth(); i > 0; i--){
+            const day = lastDateOfLastMonth() - i;
+            days.push(day)
+        }
+        setLastMonthDays(days)
     }
 
     useEffect(() => {
-        createArrayDays();
-    },[controlCalendar]);
+        createArrayActuallyMonthDays();
+        createArrayNextMonthDays();
+        createArrayLastMonthDays();
+    },[currentMonth, currentYear]);
+
+    const findEvents = (date) => {
+        let day = date < 10 ? "0" + date : date;
+        let month = currentMonth < 10 ? "0" + currentMonth : currentMonth;
+        let fullDate = `${currentYear}-${month}-${day}`;
+        let events = [];
+        if(userData._id){
+            for(let i in userData.events){
+                let eventOnlyDate = userData.events[i].date.split('T')[0];
+                if(eventOnlyDate === fullDate){
+                    events.push(userData.events[i]);
+                } else{
+                }
+            }
+            return events;
+        } else {
+            return;
+        }    
+    }
 
     return (
         <div className="month-calendar">
@@ -76,19 +119,25 @@ const MonthCalendar = () => {
                 <button className="btn-control" id="right" onClick={() => {controlCalendar("right")}}></button>
             </div>
             <div className="week">
-                <p>{t("week.Mo")}</p>
-                <p>{t("week.Tu")}</p>
-                <p>{t("week.We")}</p>
-                <p>{t("week.Th")}</p>
-                <p>{t("week.Fr")}</p>
-                <p>{t("week.Sa")}</p>
-                <p>{t("week.Su")}</p>
+                <p>{t("week.1")}</p>
+                <p>{t("week.2")}</p>
+                <p>{t("week.3")}</p>
+                <p>{t("week.4")}</p>
+                <p>{t("week.5")}</p>
+                <p>{t("week.6")}</p>
+                <p>{t("week.7")}</p>
             </div>
             <div className="days">
-                {
-                   lastDateOfMonth()
-                }
-                <p>{days}</p>
+                {lastMonthDays.map(day => {
+                    return <DayBox dayNumber={day} active="false" key={day}/>
+                })}
+                {actuallyMonthDays.map(day => {
+                    const component = findEvents(day);
+                    return <DayBox dayNumber={day} active="true" key={day} events={component}/>
+                })}
+                {nextMonthDays.map(day => {
+                    return <DayBox dayNumber={day} active="false" key={day}/>
+                })}
             </div>
         </div>
     )

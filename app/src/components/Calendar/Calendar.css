@@ -1,16 +1,23 @@
 .calendar{
     margin-top: 2rem;
+    padding: 5px;
+    flex: 1;
+}
+
+.month-calendar{
+    height: 100%;
 }
 
 .date{
     display: flex;
     justify-content: right;
     align-items: center;
+    border-top-right-radius: 15px;
 }
 
 .btn-control{
     width: 35px;
-    height: 35px;
+    height: 36px;
     background-image: url('../../assets/images/icon-left.png');
     background-size: 30px;
     background-position: center;
@@ -18,15 +25,26 @@
     background-color: transparent;
     cursor: pointer;
     transition: 200ms ease-in all;
+    border-left: 1px solid rgb(235, 235, 235);
+
 }
 
 .year-with-months{
     width: 120px;
     text-align: center;
+    border-top: 1px solid rgb(235, 235, 235);
+    padding: 5px 0;
+}
+
+.btn-control#left{
+    border-top: 1px solid rgb(235, 235, 235);
+    border-top-left-radius: 10px;
 }
 
 .btn-control#right{
     transform: rotate(180deg);
+    border-bottom: 1px solid rgb(235, 235, 235);
+    border-bottom-left-radius: 10px;
 }
 
 .btn-control:hover{
@@ -34,12 +52,59 @@
 }
 
 .week{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    border-top: 1px solid rgb(235, 235, 235);
+    border-left: 1px solid rgb(235, 235, 235);
+    border-right: 1px solid rgb(235, 235, 235);
+    border-top-left-radius: 15px;
 }
 
 .week p {
-    width: 14%;
     text-align: center;
+    font-weight: 600;
+    border-right: 1px solid rgb(235, 235, 235);
+    padding: 5px 0;
+}
+
+.week p:nth-child(7n) {
+    border-right: none;
+}
+
+.days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 1fr;
+    height: calc(100% - 50px);
+    border: 1px solid rgb(235, 235, 235);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.days .day-box{
+    padding: 5px;
+    text-align: center;
+    border-right: 1px solid rgb(235, 235, 235);
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.days .day-box:hover .add-record{
+    display: block;
+}
+
+.days .day-box:nth-child(7n) {
+    border-right: none;
+}
+
+.days .day-box:nth-last-child(-n+7) {
+    border-bottom: none;
+}
+
+.days .day-box .add-record{
+    cursor: pointer;
+    border: 1px dashed rgb(199, 199, 199);
+    border-radius: 5px;
+    display: none;
+    transition: 300ms ease all;
 }
