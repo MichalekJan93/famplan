@@ -90,13 +90,14 @@ const MonthCalendar = () => {
         createArrayActuallyMonthDays();
         createArrayNextMonthDays();
         createArrayLastMonthDays();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currentMonth, currentYear]);
 
     const findEvents = (date) => {
         let day = date < 10 ? "0" + date : date;
         let month = currentMonth < 10 ? "0" + currentMonth : currentMonth;
         let fullDate = `${currentYear}-${month}-${day}`;
-        let events = [];
+        let events = [fullDate];
         if(userData._id){
             for(let i in userData.events){
                 let eventOnlyDate = userData.events[i].date.split('T')[0];
@@ -108,7 +109,7 @@ const MonthCalendar = () => {
             return events;
         } else {
             return;
-        }    
+        }
     }
 
     return (

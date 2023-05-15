@@ -108,3 +108,22 @@
     display: none;
     transition: 300ms ease all;
 }
+
+.days .day-box .add-record:hover{
+    color: #91BF76;
+    border-color: #91BF76;
+}
+
+.days .day-box p{
+    margin-bottom: 5px;
+}
+
+.days .day-box .today{
+    width: 25px;
+    margin: 0 auto 5px auto;
+    border-radius: 50%;
+}
+
+.days .day-box.active .event{
+    border-radius: 5px;
+}
