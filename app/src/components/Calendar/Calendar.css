@@ -1,0 +1,45 @@
+.calendar{
+    margin-top: 2rem;
+}
+
+.date{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.btn-control{
+    width: 35px;
+    height: 35px;
+    background-image: url('../../assets/images/icon-left.png');
+    background-size: 30px;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 200ms ease-in all;
+}
+
+.year-with-months{
+    width: 120px;
+    text-align: center;
+}
+
+.btn-control#right{
+    transform: rotate(180deg);
+}
+
+.btn-control:hover{
+    background-image: url('../../assets/images/icon-left-hover.png');
+}
+
+.week{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.week p {
+    width: 14%;
+    text-align: center;
+}

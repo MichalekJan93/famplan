@@ -2,7 +2,7 @@ import React from "react";
 
 import MenuAppView from "./MenuAppView/MenuAppView";
 import HeaderAppView from "./HeaderAppView/HeaderAppView";
-import MonthCalendar from "../Calendar/MonthCalendar/MonthCalendar";
+import Calendar from "../Calendar/Calendar";
 
 import "./AppView.css";
 
@@ -12,7 +12,7 @@ const AppView = ({showComponent}) => {
         <div className="app-view anop">
             <MenuAppView />
             <HeaderAppView title="Dashboard"/>
-            <MonthCalendar/>
+            <Calendar />
         </div>
     )
 }
