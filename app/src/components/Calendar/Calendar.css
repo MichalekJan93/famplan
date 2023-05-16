@@ -39,6 +39,7 @@
 }
 
 .year-with-months{
+    width: clamp(94px, 18vw, 135px);
     text-align: center;
     padding: 5px;
 }
