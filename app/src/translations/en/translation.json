@@ -32,7 +32,8 @@
         "invalidLogin" : "Invalid login details"
     },
     "notification" : {
-        "greetings" : "Hi"
+        "greetings" : "Hi",
+        "more" : "More"
     },
     "months" : {
         "1" : "January",

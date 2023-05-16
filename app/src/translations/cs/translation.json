@@ -32,7 +32,8 @@
         "invalidLogin" : "Neplatné přihlašovací údaje"
     },
     "notification" : {
-        "greetings" : "Ahoj"
+        "greetings" : "Ahoj",
+        "more" : "Další"
     },
     "months" : {
         "1" : "ledna",

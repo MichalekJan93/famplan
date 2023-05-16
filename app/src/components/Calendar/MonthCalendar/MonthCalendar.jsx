@@ -18,6 +18,10 @@ const MonthCalendar = () => {
 
     const { t } = useTranslation();
 
+    /**
+     * Function for findings first day in Month. EN -> first day Sunday (return 0)
+     * @returns {number} Number first day in Month
+     */
     const firstDayOfMonth = () => {
         const firstDay = new Date(currentYear, currentMonth, 1).getDay();
         if (language === "en") {
@@ -31,18 +35,35 @@ const MonthCalendar = () => {
         }
     }
 
+    /**
+     * Function for findings last date in actually month
+     * @returns {number} last date in actually month
+     */
     const lastDateOfMonth = () => {
         return new Date(currentYear, currentMonth, 0).getDate();
     }
 
+    /**
+     * Function for findings last date in last month
+     * @returns {number} last date in last month
+     */
     const lastDateOfLastMonth = () => {
         return new Date(currentYear, currentMonth - 1, 0).getDate();
     }
 
+    /**
+     * Function for findings last day in actually month
+     * @returns {number} last day in actually month
+     */
     const lastDayOfLastMonth = () => {
         return new Date(currentYear, currentMonth - 1, 0).getDay();
     }
 
+    /**
+     * Function for control calendar
+     * @param {String} operation left or right
+     * @returns 
+     */
     const controlCalendar = (operation) => {
         if (operation === "left") {
             if(currentMonth - 1 === 0){
@@ -61,6 +82,7 @@ const MonthCalendar = () => {
         }
     }
 
+    /*  Function set all days in actually month in useState actuallyMonthDays */
     const createArrayActuallyMonthDays = () => {
         let days = [];
         for( let i = 1; i <= lastDateOfMonth(); i++ ){
@@ -69,6 +91,7 @@ const MonthCalendar = () => {
         setActuallyMonthDays(days);
     }
 
+    /* Function set all days in next month in useState nextMonthDays */
     const createArrayNextMonthDays = () => {
         let days = [];
         for(let i = 1; i <= 8 - firstDayOfMonth(); i++){
@@ -77,6 +100,7 @@ const MonthCalendar = () => {
         setNextMonthDays(days)
     }
 
+    /* Function set all days in last month in useState lastMonthDays */
     const createArrayLastMonthDays = () => {
         let days = [];
         for(let i = lastDayOfLastMonth(); i > 0; i--){
@@ -93,6 +117,11 @@ const MonthCalendar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currentMonth, currentYear]);
 
+    /**
+     * The function finds events for the current date from the useContext userData
+     * @param {String} date 
+     * @returns events
+     */
     const findEvents = (date) => {
         let day = date < 10 ? "0" + date : date;
         let month = currentMonth < 10 ? "0" + currentMonth : currentMonth;
@@ -115,9 +144,11 @@ const MonthCalendar = () => {
     return (
         <div className="month-calendar">
             <div className="date">
-                <button className="btn-control" id="left" onClick={() => {controlCalendar("left")}}></button>
-                <p className="year-with-months">{t("monthsCalendar." + currentMonth) + " " + currentYear}</p>
-                <button className="btn-control" id="right" onClick={() => {controlCalendar("right")}}></button>
+                <div className="date-box">
+                    <button className="btn-control" id="left" onClick={() => {controlCalendar("left")}}></button>
+                    <p className="year-with-months">{t("monthsCalendar." + currentMonth) + " " + currentYear}</p>
+                    <button className="btn-control" id="right" onClick={() => {controlCalendar("right")}}></button> 
+                </div>
             </div>
             <div className="week">
                 <p>{t("week.1")}</p>

@@ -11,7 +11,7 @@ const HeaderAppView = (props) => {
         const language = localStorage.getItem("i18nextLng");
         const date = new Date();
         const year = date.getFullYear();
-        const day = date.getDate() -1;
+        const day = date.getDate();
         const month = date.getMonth() + 1;
 
         if(language === "cs" || language === "sk"){

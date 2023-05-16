@@ -56,3 +56,7 @@
     right: 0px;
     text-align: center;
 }
+
+.icon-notification p{
+    font-size: 0.7rem;
+}

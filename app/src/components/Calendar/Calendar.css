@@ -15,36 +15,37 @@
     border-top-right-radius: 15px;
 }
 
+.date .date-box{
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgb(235, 235, 235);
+    border-left: 1px solid rgb(235, 235, 235);
+    border-right: 1px solid rgb(235, 235, 235);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
 .btn-control{
     width: 35px;
-    height: 36px;
+    height: clamp(28px, 2vw, 36px);
     background-image: url('../../assets/images/icon-left.png');
     background-size: 30px;
     background-position: center;
+    background-repeat: no-repeat;
     border: none;
     background-color: transparent;
     cursor: pointer;
     transition: 200ms ease-in all;
-    border-left: 1px solid rgb(235, 235, 235);
-
 }
 
 .year-with-months{
-    width: 120px;
     text-align: center;
-    border-top: 1px solid rgb(235, 235, 235);
-    padding: 5px 0;
+    padding: 5px;
 }
 
-.btn-control#left{
-    border-top: 1px solid rgb(235, 235, 235);
-    border-top-left-radius: 10px;
-}
 
 .btn-control#right{
     transform: rotate(180deg);
-    border-bottom: 1px solid rgb(235, 235, 235);
-    border-bottom-left-radius: 10px;
 }
 
 .btn-control:hover{
@@ -87,6 +88,7 @@
     text-align: center;
     border-right: 1px solid rgb(235, 235, 235);
     border-bottom: 1px solid rgb(235, 235, 235);
+    position: relative;
 }
 
 .days .day-box:hover .add-record{
@@ -107,15 +109,19 @@
     border-radius: 5px;
     display: none;
     transition: 300ms ease all;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 95%;
 }
 
 .days .day-box .add-record:hover{
     color: #91BF76;
     border-color: #91BF76;
-}
-
-.days .day-box p{
-    margin-bottom: 5px;
 }
 
 .days .day-box .today{
@@ -124,6 +130,44 @@
     border-radius: 50%;
 }
 
+.days .day-box.active{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
 .days .day-box.active .event{
     border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+    text-align: left;
+    width: 95%;
+    padding: 1px 0 1px 5px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 }
+
+.days .day-box.active .event.next-events{
+    font-weight: 600 !important;
+}
+
+.days .day-box.active .event.next-events:hover{
+    text-decoration: underline;
+}
+
+.days .day-box.active .event:hover:after {
+    content:"";
+    width:100%;
+    height:100%;
+    background:rgba(255, 255, 255, 0.104);
+    position:absolute;
+    top:0;
+    left:0;
+    border-radius: 5px;
+} 

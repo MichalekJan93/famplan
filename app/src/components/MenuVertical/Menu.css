@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     transition: 500ms;
-    min-height: 800px;
+    min-height: 900px;
     height: 100vh;
     background-color: #070707;
 }

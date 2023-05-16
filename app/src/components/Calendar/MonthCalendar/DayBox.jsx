@@ -1,8 +1,13 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState, useRef} from "react";
+import { useTranslation } from "react-i18next";
 
 const DayBox = ({dayNumber, active, events}) => {
 
     const [fullDatum, setFullDatum] = useState([]);
+    const [topPosition, setTopPosition] = useState(30);
+    const nextValueParagraph = useRef(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         if(events){
@@ -16,7 +21,7 @@ const DayBox = ({dayNumber, active, events}) => {
     }
 
     const getClassNameToday = () => {
-        const className = "today bggr clwt";
+        const className = "today bgdrbl clwt";
         if(isToday(fullDatum)){
             return className;
         } else{
@@ -28,9 +33,24 @@ const DayBox = ({dayNumber, active, events}) => {
         if (!events || events.length <= 1) {
           return null;
         }
-        const eventElements = events.slice(1).map((event, index) => (
-            <p key={index} className="event bggr clwt angd">{event.title}</p>
-        ));
+
+        let nextEvent = 0;
+
+        const eventElements = events.slice(1).map((event, index) => {
+            if(index < 2){
+                 return <p key={index} style={{top: `${topPosition + index * 23}px`}} className={`event clwt anop ${event.color}`}>{event.title}</p>
+            } else if(index === 2) {
+                nextEvent++;
+                return <p key={index} style={{top: `${topPosition + index * 23}px`}} className={`next-events event cldrbl anop`} ref={nextValueParagraph}>{t("notification.more")} {nextEvent}</p>
+            } else {
+                if(nextValueParagraph.current){
+                    nextEvent++;
+                    nextValueParagraph.current.innerHTML = `${t("notification.more")} ${nextEvent}`;
+                }
+                return null;
+            }
+        });
+
         return <>{eventElements}</>;
     };
 

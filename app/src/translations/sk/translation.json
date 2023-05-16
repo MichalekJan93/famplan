@@ -31,7 +31,8 @@
         "fillFields" : "Neplatné prihlasovacie údaje"
     },
     "notification" : {
-        "greetings" : "Ahoj"
+        "greetings" : "Ahoj",
+        "more" : "Viac"
     },
     "months" : {
         "1" : "január",

@@ -12,6 +12,6 @@
 }
 
 .app-view-header-date .date{
-    font-size: 1.2rem;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
     font-weight: 600;
 }
