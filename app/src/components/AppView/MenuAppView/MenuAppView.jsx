@@ -7,12 +7,10 @@ import settingIconHover from '../../../assets/images/icon-setting-hover.png';
 import notificationIcon from '../../../assets/images/icon-notification.png';
 import notificationIconHover from '../../../assets/images/icon-notification-hover.png';
 import { getImage } from "../../../utils/getImage";
-import { useTranslation } from "react-i18next";
 import  userDefImage  from "../../../assets/images/userIcon/icon-user-fox.png";
 
 
 const MenuAppView = () => {
-    const { t } = useTranslation();
 
     const userData = useContext(DataContext);
     const [userImage, setUserImage] = useState(userDefImage);
@@ -29,9 +27,6 @@ const MenuAppView = () => {
 
     return(
         <div className="app-view-menu">
-            <div>
-                <h1 className="cldrbl ">{t("notification.greetings")}, {userData.name}</h1>
-            </div>
             <div className='app-view-icons'>
                 <Icon {...firstIcon}/>
                 <Icon {...secondIcon} />

@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import './HeaderAppView.css'
 import { getNameDate } from "../../../utils/getNameDay";
 import { useTranslation } from "react-i18next";
 
 const HeaderAppView = (props) => {
-    const [title, setTitle] = useState(props.title);
     const { t } = useTranslation();
 
     const today = () => {
@@ -31,7 +30,7 @@ const HeaderAppView = (props) => {
 
     return (
         <div className="app-view-header">
-            <h1>{title}</h1>
+            <h1>{props.title}</h1>
             <div className="app-view-header-date">
                 {returnNameDate()}
                 <p className="date">{today()}</p>

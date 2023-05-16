@@ -28,7 +28,7 @@
 .btn-control{
     width: 35px;
     height: clamp(28px, 2vw, 36px);
-    background-image: url('../../assets/images/icon-left.png');
+    background-image: url('../../../assets/images/icon-left.png');
     background-size: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@
 }
 
 .btn-control:hover{
-    background-image: url('../../assets/images/icon-left-hover.png');
+    background-image: url('../../../assets/images/icon-left-hover.png');
 }
 
 .week{
